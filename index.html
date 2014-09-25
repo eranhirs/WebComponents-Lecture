@@ -52,7 +52,7 @@
 				</section>
 
 				<section>
-					<section>
+					<section id="aboutSlide">
 						<h2>Eran Hirsch</h2>
 						<ul>
 							<li>Team Leader</li>
@@ -63,19 +63,19 @@
 							- Check standards in code (id of elements)
 						</aside>
 					</section>
-					<section>
+					<section id="profilePictureSlide">
 						<img src="images/profile.png"></img>
 					</section>
 				</section>
 
 				<section data-background="images/icon-customelements.png" data-background-size="50px" data-background-position="10%">
-					<section>
+					<section id="customElementsSlide">
 						<h2>Custom Elements</h2>
 						<p>
 							<q cite="http://webcomponents.org/">"Enables the author to define and use new types of DOM elements in a document."</q>
 						</p>
 					</section>
-					<section>
+					<section id="xSquareSlide">
 						<h3>XSquare</h3>
 						<script>
 							// First slide
@@ -159,7 +159,7 @@ var XSquare = document.registerElement('x-square', {
 							- Is it ok for custom element to use the DOM?
 						</aside>
 					</section>
-					<section>
+					<section id="xRectangleSlide">
 						<h3>XRectangle</h3>
 						<pre>
 							<code contenteditable class="javascript">
@@ -187,7 +187,7 @@ var XSquare = document.registerElement('x-rectangle', {
 							- In Rect - why write twice the square? Answer: Must inheritance to extend! http://www.html5rocks.com/en/tutorials/webcomponents/customelements/
 						</aside>
 					</section>
-					<section>
+					<section id="xSquareButtonSlide">
 						<h3>XSquareButton</h3>
 						<pre>
 							<code contenteditable class="javascript">
@@ -219,7 +219,7 @@ var XSquare = document.registerElement('x-square-button', {
 							- Why extends is used only in button? Answer: Different syntax, it uses <button is="..."></button> native elements first then calls our constructors. In custom element inheritance is enough.
 						</aside>
 					</section>
-					<section>
+					<section id="customElementsAlternativesSlide">
 						<h3>Alternatives</h3>
 						<ul>
 							<li>AngularJS directives</li>
@@ -233,13 +233,13 @@ var XSquare = document.registerElement('x-square-button', {
 				</section>
 
 				<section data-background="images/icon-htmlimports.png" data-background-size="50px" data-background-position="10%">
-					<section>
+					<section id="htmlImportsSlide">
 						<h2>HTML Imports</h2>
 						<p>
 							<q cite="http://webcomponents.org/">"HTML Imports are a way to include and reuse HTML documents in other HTML documents."</q>
 						</p>
 					</section>
-					<section id="importKittyHtml">
+					<section id="importKittyHtmlSlide">
 						<h3>Import HTML file with kitty</h3>
 						<pre>
 							<code data-trim contenteditable class="html">
@@ -284,7 +284,7 @@ examplePlaceHolder.appendChild(kitty.cloneNode(true));
 							- What happens if the page raises an exception?
 						</aside>
 					</section>
-					<section>
+					<section id="htmlImportsAlternativesSlide">
 						<h3>Alternatives</h3>
 						<ul>
 							<li>&lt;iframe&gt;</li>
@@ -300,7 +300,7 @@ examplePlaceHolder.appendChild(kitty.cloneNode(true));
 				</section>
 
 				<section data-background="images/icon-templates.png" data-background-size="50px" data-background-position="10%">
-					<section>
+					<section id="templatesSlide">
 						<h2>Templates</h2>
 						<p>
 							<q cite="http://webcomponents.org/">"Declaring inert DOM subtrees in HTML and manipulating them to instantiate document fragments with identical contents."</q>
@@ -314,7 +314,7 @@ examplePlaceHolder.appendChild(kitty.cloneNode(true));
 
 				
 				<section data-background="images/icon-shadowdom.png" data-background-size="50px" data-background-position="10%">
-					<section>
+					<section id="shadowDOMSlide">
 						<h2>Shadow DOM</h2>
 						<p>
 							<q cite="http://webcomponents.org/">"Method of establishing and maintaining functional boundaries between DOM trees and how these trees interact with each other within a document, thus enabling better functional encapsulation within the DOM."</q>
@@ -322,7 +322,7 @@ examplePlaceHolder.appendChild(kitty.cloneNode(true));
 					</section>
 				</section>
 			
-				<section data-background="images/icon-webcomponents.png" data-background-size="50px" data-background-position="10%">
+				<section id="isWebComponentsReadyForProductionSlide" data-background="images/icon-webcomponents.png" data-background-size="50px" data-background-position="10%">
 					<h2>Is Web Components ready for production?</h2>
 					<p>
 						<q cite="http://webcomponents.org/">"..."</q>
@@ -330,11 +330,11 @@ examplePlaceHolder.appendChild(kitty.cloneNode(true));
 				</section>
 				
 				<section>
-					<section data-background="images/icon-questionmark.png" data-background-size="50px" data-background-position="10%">
+					<section id="questionsSlide" data-background="images/icon-questionmark.png" data-background-size="50px" data-background-position="10%">
 						<h2>Questions?</h2>
 					</section>
 				
-					<section data-background="images/icon-questionmark.png" data-background-size="50px" data-background-position="10%">
+					<section id="recapSlide" data-background="images/icon-questionmark.png" data-background-size="50px" data-background-position="10%">
 						<h2>Recap</h2>
 						<p class="fragment grow">Custom Elements</p>
 						<p class="fragment grow">HTML Imports</p>
@@ -345,7 +345,7 @@ examplePlaceHolder.appendChild(kitty.cloneNode(true));
 				</section>
 				
 				<section>
-					<section>
+					<section id="referencesSlide">
 						<h2>References</h2>
 						<ul>
 							<li><a href="http://webcomponents.org/">http://webcomponents.org/</a></li>
