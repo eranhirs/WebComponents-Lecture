@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Web Components - New era in web development</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -60,7 +60,7 @@
 							<li>Entrepreneur</li>
 						</ul>
 						<aside class="notes">
-							Yo
+							- Check standards in code (id of elements)
 						</aside>
 					</section>
 					<section>
@@ -153,8 +153,9 @@ var XSquare = document.registerElement('x-square', {
 						</pre>
 						
 						<aside class="notes">
-							- Object.create ?
-							- What happens behind the stages?
+							- Custom elements must use -, but is it possible to have <square></square> ?
+							- Object.create ? <br/>
+							- What happens behind the stages? <br/>
 							- Is it ok for custom element to use the DOM?
 						</aside>
 					</section>
@@ -218,6 +219,17 @@ var XSquare = document.registerElement('x-square-button', {
 							- Why extends is used only in button? Answer: Different syntax, it uses <button is="..."></button> native elements first then calls our constructors. In custom element inheritance is enough.
 						</aside>
 					</section>
+					<section>
+						<h3>Alternatives</h3>
+						<ul>
+							<li>AngularJS directives</li>
+							<li>Other MVC frameworks</li>
+						</ul>
+						
+						<aside class="notes">
+							- Why is this better than angularJS?
+						</aside>
+					</section>					
 				</section>
 
 				<section data-background="images/icon-htmlimports.png" data-background-size="50px" data-background-position="10%">
@@ -267,7 +279,9 @@ examplePlaceHolder.appendChild(kitty.cloneNode(true));
 							examplePlaceHolder.appendChild(kitty.cloneNode(true));
 						</script>
 						<aside class="notes">
-							- polymer: "HTML Imports are a way to include and reuse HTML documents in other HTML documents. As script tags let authors include external Javascript in their pages, imports let authors load full HTML resources. In particular, imports let authors include Custom Element definitions from external URLs."
+							- polymer: "HTML Imports are a way to include and reuse HTML documents in other HTML documents. As script tags let authors include external Javascript in their pages, imports let authors load full HTML resources. In particular, imports let authors include Custom Element definitions from external URLs."</br>
+							- html5rocks: ?? </br>
+							- What happens if the page raises an exception?
 						</aside>
 					</section>
 					<section>
@@ -276,6 +290,12 @@ examplePlaceHolder.appendChild(kitty.cloneNode(true));
 							<li>&lt;iframe&gt;</li>
 							<li>AJAX</li>
 						</ul>
+						<aside class="notes">
+							- Does a regular querySelector works with iframe?</br>
+							- Why not ajax?
+							- &lt;iframe&gt; - tried and true but heavy weight. An iframe's content lives entirely in a separate context than your page. While that's mostly a great feature, it creates additional challenges (shrink wrapping the size of the frame to its content is tough, insanely frustrating to script into/out of, nearly impossible to style).</br>
+							- AJAX - I love xhr.responseType="document", but you're saying I need JS to load HTML? That doesn't seem right.
+						</aside>
 					</section>
 				</section>
 
@@ -285,6 +305,10 @@ examplePlaceHolder.appendChild(kitty.cloneNode(true));
 						<p>
 							<q cite="http://webcomponents.org/">"Declaring inert DOM subtrees in HTML and manipulating them to instantiate document fragments with identical contents."</q>
 						</p>
+						
+						<aside class="notes">
+							- inert - lacking the ability or strength to move
+						</aside>
 					</section>
 				</section>
 
@@ -298,6 +322,14 @@ examplePlaceHolder.appendChild(kitty.cloneNode(true));
 					</section>
 				</section>
 				
+				<section data-background="images/icon-shadowdom.png" data-background-size="50px" data-background-position="10%">
+					<section>
+						<h2>Is Web Components ready for production?</h2>
+						<p>
+							<q cite="http://webcomponents.org/">"..."</q>
+						</p>
+					</section>
+				</section>
 				
 				<section>
 					<section>
@@ -306,6 +338,7 @@ examplePlaceHolder.appendChild(kitty.cloneNode(true));
 							<li>http://webcomponents.org/</li>
 							<li>http://www.polymer-project.org/</li>
 							<li>http://www.html5rocks.com/en/tutorials/webcomponents/customelements/</li>
+							<li>http://www.html5rocks.com/en/tutorials/webcomponents/imports/</li>
 						</ul>
 					</section>
 				</section>
@@ -315,6 +348,7 @@ examplePlaceHolder.appendChild(kitty.cloneNode(true));
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
+		<script src="js/script.js"></script>
 
 		<script>
 
