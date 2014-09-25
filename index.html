@@ -15,6 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/theme/night.css" id="theme">
 
 		<!-- For syntax highlighting -->
@@ -226,17 +227,55 @@ var XSquare = document.registerElement('x-square-button', {
 							<q cite="http://webcomponents.org/">"HTML Imports are a way to include and reuse HTML documents in other HTML documents."</q>
 						</p>
 					</section>
-					<section>
+					<section id="importKittyHtml">
 						<h3>Import HTML file with kitty</h3>
 						<pre>
-							<code contenteditable class="html">
+							<code data-trim contenteditable class="html">
 &lt;link rel="import" href="fileWithKittyImage.html"&gt;
 							</code>
 						</pre>
-						<link rel="import" href="fileWithKittyImage.html">
+						<pre class="javascript-container">
+							<code data-trim contenteditable class="javascript">
+// Grab content
+var link = document.querySelector('link[rel="import"]');
+var content = link.import;
+
+// Grab relevant DOM from kitty page
+var kitty = content.querySelector('.kitty');
+
+// Append to our DOM
+var examplePlaceHolder = document.querySelector('#examplePlaceHolder');
+examplePlaceHolder.appendChild(kitty.cloneNode(true));							
+							</code>
+						</pre>
+						<link rel="import" href="./fileWithKittyImage.html">
+						<h3>Example:</h3>
+						<p id="examplePlaceHolder">
+						
+						</p>
+						
+						<script>
+							// Grab content
+							var link = document.querySelector('link[rel="import"]');
+							var content = link.import;
+							
+							// Grab relevant DOM from kitty page
+							var kitty = content.querySelector('.kitty');
+							
+							// Append to our DOM
+							var examplePlaceHolder = document.querySelector('#examplePlaceHolder');
+							examplePlaceHolder.appendChild(kitty.cloneNode(true));
+						</script>
 						<aside class="notes">
 							- polymer: "HTML Imports are a way to include and reuse HTML documents in other HTML documents. As script tags let authors include external Javascript in their pages, imports let authors load full HTML resources. In particular, imports let authors include Custom Element definitions from external URLs."
 						</aside>
+					</section>
+					<section>
+						<h3>Alternatives</h3>
+						<ul>
+							<li>&lt;iframe&gt;</li>
+							<li>AJAX</li>
+						</ul>
 					</section>
 				</section>
 

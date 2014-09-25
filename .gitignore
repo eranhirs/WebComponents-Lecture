@@ -4,3 +4,4 @@ log/*.log
 tmp/**
 node_modules/
 .sass-cache
+mongoose-4.1.exe
