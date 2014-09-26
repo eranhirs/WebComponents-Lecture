@@ -16,21 +16,21 @@
             <h3>Import HTML file with kitty</h3>
                 <pre>
                   <code data-trim contenteditable class="html">
-                      &lt;link rel="import" href="fileWithKittyImage.html"&gt;
+&lt;link rel="import" href="fileWithKittyImage.html"&gt;
                   </code>
                 </pre>
                 <pre class="javascript-container">
                   <code data-trim contenteditable class="javascript">
-                      // Grab content
-                      var link = document.querySelector('link[rel="import"]');
-                      var content = link.import;
+// Grab content
+var link = document.querySelector('link[rel="import"]');
+var content = link.import;
 
-                      // Grab relevant DOM from kitty page
-                      var kitty = content.querySelector('.kitty');
+// Grab relevant DOM from kitty page
+var kitty = content.querySelector('.kitty');
 
-                      // Append to our DOM
-                      var examplePlaceHolder = document.querySelector('#examplePlaceHolder');
-                      examplePlaceHolder.appendChild(kitty.cloneNode(true));
+// Append to our DOM
+var examplePlaceHolder = document.querySelector('#examplePlaceHolder');
+examplePlaceHolder.appendChild(kitty.cloneNode(true));
                   </code>
                 </pre>
             <link rel="import" href="../../views/fileWithKittyImage.html">

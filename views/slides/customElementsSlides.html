@@ -70,21 +70,21 @@
             </script>
                 <pre>
                   <code contenteditable class="javascript">
-                      var XSquarePrototype = Object.create(HTMLElement.prototype);
+var XSquarePrototype = Object.create(HTMLElement.prototype);
 
-                      XSquarePrototype.createdCallback = function() {
-                      // Add style
-                      this.style.border = "red 5px dashed";
-                      this.style.width = "50px";
-                      this.style.height = "50px";
-                      };
+XSquarePrototype.createdCallback = function() {
+// Add style
+this.style.border = "red 5px dashed";
+this.style.width = "50px";
+this.style.height = "50px";
+};
 
-                      var XSquare = document.registerElement('x-square', {
-                      prototype: XSquarePrototype
-                      });
+var XSquare = document.registerElement('x-square', {
+prototype: XSquarePrototype
+});
                   </code>
                   <code contenteditable class="html">
-                      &lt;x-square&gt;&lt;/x-square&gt;
+&lt;x-square&gt;&lt;/x-square&gt;
                   </code>
                   <h3>Example:</h3><x-square></x-square>
                 </pre>
@@ -101,22 +101,22 @@
             <h3>XRectangle</h3>
                 <pre>
                   <code contenteditable class="javascript">
-                      var XRectanglePrototype = Object.create(XSquarePrototype);
+var XRectanglePrototype = Object.create(XSquarePrototype);
 
-                      XRectanglePrototype.createdCallback = function() {
-                      // Call base
-                      XSquarePrototype.createdCallback.call(this);
+XRectanglePrototype.createdCallback = function() {
+// Call base
+XSquarePrototype.createdCallback.call(this);
 
-                      // Add width
-                      this.style.width = "250px";
-                      };
+// Add width
+this.style.width = "250px";
+};
 
-                      var XSquare = document.registerElement('x-rectangle', {
-                      prototype: XRectanglePrototype
-                      });
+var XSquare = document.registerElement('x-rectangle', {
+prototype: XRectanglePrototype
+});
                   </code>
                   <code contenteditable class="html">
-                      &lt;x-rectangle&gt;&lt;/x-rectangle&gt;
+&lt;x-rectangle&gt;&lt;/x-rectangle&gt;
                   </code>
                   <h3>Example:</h3><x-rectangle></x-rectangle>
                 </pre>
@@ -129,26 +129,26 @@
             <h3>XSquareButton</h3>
                 <pre>
                   <code contenteditable class="javascript">
-                      var XSquareButtonPrototype = Object.create(HTMLButtonElement.prototype);
+var XSquareButtonPrototype = Object.create(HTMLButtonElement.prototype);
 
-                      XSquareButtonPrototype.createdCallback = function() {
-                      // Add style
-                      this.style.border = "red 3px dashed";
-                      this.style.width = "50px";
-                      this.style.height = "50px";
+XSquareButtonPrototype.createdCallback = function() {
+// Add style
+this.style.border = "red 3px dashed";
+this.style.width = "50px";
+this.style.height = "50px";
 
-                      // Add click event
-                      this.onclick = function() { alert("Good job!"); };
-                      this.innerHTML = "Hi";
-                      };
+// Add click event
+this.onclick = function() { alert("Good job!"); };
+this.innerHTML = "Hi";
+};
 
-                      var XSquare = document.registerElement('x-square-button', {
-                      prototype: XSquareButtonPrototype,
-                      extends: 'button'
-                      });
+var XSquare = document.registerElement('x-square-button', {
+prototype: XSquareButtonPrototype,
+extends: 'button'
+});
                   </code>
                   <code contenteditable class="html">
-                      &lt;button is="x-square-button"&gt;&lt;/button&gt;
+&lt;button is="x-square-button"&gt;&lt;/button&gt;
                   </code>
                   <h3>Example:</h3><button is="x-square-button"></button>
                 </pre>
