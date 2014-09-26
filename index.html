@@ -1,399 +1,105 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
 
-		<title>Web Components - New era in web development</title>
+    <title>Web Components - New era in web development</title>
 
-		<meta name="description" content="Web Components - New era in web development">
-		<meta name="author" content="Eran Hirsch">
+    <meta name="description" content="Web Components - New era in web development">
+    <meta name="author" content="Eran Hirsch">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme/night.css" id="theme">
 
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-		<script>
-			if( window.location.search.match( /print-pdf/gi ) ) {
-				var link = document.createElement( 'link' );
-				link.rel = 'stylesheet';
-				link.type = 'text/css';
-				link.href = 'css/print/pdf.css';
-				document.getElementsByTagName( 'head' )[0].appendChild( link );
-			}
-		</script>
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+    <script src="js/script.js"></script>
 
-	<body>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    
+    <!-- Import slides -->
+    <link rel="import" href="./views/slides/introSlide.html">
+    <link rel="import" href="./views/slides/aboutSlide.html">
+    <link rel="import" href="./views/slides/customElementsSlides.html">
+    <link rel="import" href="./views/slides/htmlImportsSlides.html">
+    <link rel="import" href="./views/slides/templatesSlides.html">
+    <link rel="import" href="./views/slides/shadowDOMSlides.html">
+    <link rel="import" href="./views/slides/questionsRecapSlides.html">
+    <link rel="import" href="./views/slides/referencesSlide.html">
+    
+  </head>
 
-		<div class="reveal">
+  <body>
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section data-background="images/icon-webcomponents.png" data-background-size="50px" data-background-position="10%">
-					<h1>Web Components</h1>
-					<h3>New era in web development</h3>
-					<p>
-						<small><a href="https://github.com/eranhirs">Eran Hirsch</a> / <a href="https://twitter.com/hirscheran">@hirscheran</a></small>
-					</p>
-				</section>
+    <div class="reveal">
 
-				<section>
-					<section id="aboutSlide">
-						<h2>Eran Hirsch</h2>
-						<ul>
-							<li>Team Leader</li>
-							<li>Tech Leader</li>
-							<li>Entrepreneur</li>
-						</ul>
-						<aside class="notes">
-							- Check standards in code (id of elements)
-						</aside>
-					</section>
-					<section id="profilePictureSlide">
-						<img src="images/profile.png"></img>
-					</section>
-				</section>
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
 
-				<section data-background="images/icon-customelements.png" data-background-size="50px" data-background-position="10%">
-					<section id="customElementsSlide">
-						<h2>Custom Elements</h2>
-						<p>
-							<q cite="http://webcomponents.org/">"Enables the author to define and use new types of DOM elements in a document."</q>
-						</p>
-					</section>
-					<section id="xSquareSlide">
-						<h3>XSquare</h3>
-						<script>
-							// First slide
-							
-							var XSquarePrototype = Object.create(HTMLElement.prototype);
-							
-							XSquarePrototype.createdCallback = function() {
-								// Add style
-								this.style.border = "red 5px dashed";
-								this.style.width = "50px";
-								this.style.height = "50px";
-								this.style.display = "block";
-							};
-							
-							var XSquare = document.registerElement('x-square', {
-								prototype: XSquarePrototype
-							});
-							
-							// Second slide
-							
-							var XRectanglePrototype = Object.create(XSquarePrototype);
-							
-							XRectanglePrototype.createdCallback = function() {
-								// Call base
-								XSquarePrototype.createdCallback.call(this);
-								
-								// Add width
-								this.style.width = "250px";
-							};
-							
-							var XSquare = document.registerElement('x-rectangle', {
-								prototype: XRectanglePrototype
-							});
-							
-							// Third slide
-							
-							var XSquareButtonPrototype = Object.create(HTMLButtonElement.prototype);
-							
-							XSquareButtonPrototype.createdCallback = function() {
-								// Add style
-								this.style.border = "red 3px dashed";
-								this.style.width = "50px";
-								this.style.height = "50px";
-								
-								// Add click event
-								this.onclick = function() { alert("Good job!"); };
-								this.innerHTML = "Hi";
-								this.style.display = "block";
-							};
-							
-							var XSquare = document.registerElement('x-square-button', {
-								prototype: XSquareButtonPrototype,
-								extends: 'button'
-							});
-						</script>
-						<pre>
-							<code contenteditable class="javascript">
-var XSquarePrototype = Object.create(HTMLElement.prototype);
+      </div>
 
-XSquarePrototype.createdCallback = function() {
-	// Add style
-	this.style.border = "red 5px dashed";
-	this.style.width = "50px";
-	this.style.height = "50px";
-};
+    </div>
 
-var XSquare = document.registerElement('x-square', {
-	prototype: XSquarePrototype
-});
-							</code>
-							<code contenteditable class="html">
-&lt;x-square&gt;&lt;/x-square&gt;
-							</code>
-							<h3>Example:</h3><x-square></x-square>
-						</pre>
-						
-						<aside class="notes">
-							- Custom elements must use -, but is it possible to have <square></square> ?
-							- Object.create ? <br/>
-							- What happens behind the stages? <br/>
-							- Is it ok for custom element to use the DOM?
-						</aside>
-					</section>
-					<section id="xRectangleSlide">
-						<h3>XRectangle</h3>
-						<pre>
-							<code contenteditable class="javascript">
-var XRectanglePrototype = Object.create(XSquarePrototype);
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
 
-XRectanglePrototype.createdCallback = function() {
-	// Call base
-	XSquarePrototype.createdCallback.call(this);
-	
-	// Add width
-	this.style.width = "250px";
-};
+    <script>
+        // Get slides from html import
+        Utilities.initialize();
+    </script>
 
-var XSquare = document.registerElement('x-rectangle', {
-	prototype: XRectanglePrototype
-});
-							</code>
-							<code contenteditable class="html">
-&lt;x-rectangle&gt;&lt;/x-rectangle&gt;
-							</code>
-							<h3>Example:</h3><x-rectangle></x-rectangle>
-						</pre>
-						
-						<aside class="notes">
-							- In Rect - why write twice the square? Answer: Must inheritance to extend! http://www.html5rocks.com/en/tutorials/webcomponents/customelements/
-						</aside>
-					</section>
-					<section id="xSquareButtonSlide">
-						<h3>XSquareButton</h3>
-						<pre>
-							<code contenteditable class="javascript">
-var XSquareButtonPrototype = Object.create(HTMLButtonElement.prototype);
+    <script>
 
-XSquareButtonPrototype.createdCallback = function() {
-	// Add style
-	this.style.border = "red 3px dashed";
-	this.style.width = "50px";
-	this.style.height = "50px";
-	
-	// Add click event
-	this.onclick = function() { alert("Good job!"); };
-	this.innerHTML = "Hi";
-};
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
 
-var XSquare = document.registerElement('x-square-button', {
-	prototype: XSquareButtonPrototype,
-	extends: 'button'
-});
-							</code>
-							<code contenteditable class="html">
-&lt;button is="x-square-button"&gt;&lt;/button&gt;
-							</code>
-							<h3>Example:</h3><button is="x-square-button"></button>
-						</pre>
-						
-						<aside class="notes">
-							- Why extends is used only in button? Answer: Different syntax, it uses <button is="..."></button> native elements first then calls our constructors. In custom element inheritance is enough.
-						</aside>
-					</section>
-					<section id="customElementsAlternativesSlide">
-						<h3>Alternatives</h3>
-						<ul>
-							<li>AngularJS directives</li>
-							<li>Other MVC frameworks</li>
-						</ul>
-						
-						<aside class="notes">
-							- Why is this better than angularJS?
-						</aside>
-					</section>					
-				</section>
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
-				<section data-background="images/icon-htmlimports.png" data-background-size="50px" data-background-position="10%">
-					<section id="htmlImportsSlide">
-						<h2>HTML Imports</h2>
-						<p>
-							<q cite="http://webcomponents.org/">"HTML Imports are a way to include and reuse HTML documents in other HTML documents."</q>
-						</p>
-					</section>
-					<section id="importKittyHtmlSlide">
-						<h3>Import HTML file with kitty</h3>
-						<pre>
-							<code data-trim contenteditable class="html">
-&lt;link rel="import" href="fileWithKittyImage.html"&gt;
-							</code>
-						</pre>
-						<pre class="javascript-container">
-							<code data-trim contenteditable class="javascript">
-// Grab content
-var link = document.querySelector('link[rel="import"]');
-var content = link.import;
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
 
-// Grab relevant DOM from kitty page
-var kitty = content.querySelector('.kitty');
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
 
-// Append to our DOM
-var examplePlaceHolder = document.querySelector('#examplePlaceHolder');
-examplePlaceHolder.appendChild(kitty.cloneNode(true));							
-							</code>
-						</pre>
-						<link rel="import" href="./fileWithKittyImage.html">
-						<h3>Example:</h3>
-						<p id="examplePlaceHolder">
-						
-						</p>
-						
-						<script>
-							// Grab content
-							var link = document.querySelector('link[rel="import"]');
-							var content = link.import;
-							
-							// Grab relevant DOM from kitty page
-							var kitty = content.querySelector('.kitty');
-							
-							// Append to our DOM
-							var examplePlaceHolder = document.querySelector('#examplePlaceHolder');
-							examplePlaceHolder.appendChild(kitty.cloneNode(true));
-						</script>
-						<aside class="notes">
-							- polymer: "HTML Imports are a way to include and reuse HTML documents in other HTML documents. As script tags let authors include external Javascript in their pages, imports let authors load full HTML resources. In particular, imports let authors include Custom Element definitions from external URLs."</br>
-							- html5rocks: ?? </br>
-							- What happens if the page raises an exception?
-						</aside>
-					</section>
-					<section id="htmlImportsAlternativesSlide">
-						<h3>Alternatives</h3>
-						<ul>
-							<li>&lt;iframe&gt;</li>
-							<li>AJAX</li>
-						</ul>
-						<aside class="notes">
-							- Does a regular querySelector works with iframe?</br>
-							- Why not ajax?
-							- &lt;iframe&gt; - tried and true but heavy weight. An iframe's content lives entirely in a separate context than your page. While that's mostly a great feature, it creates additional challenges (shrink wrapping the size of the frame to its content is tough, insanely frustrating to script into/out of, nearly impossible to style).</br>
-							- AJAX - I love xhr.responseType="document", but you're saying I need JS to load HTML? That doesn't seem right.
-						</aside>
-					</section>
-				</section>
+    </script>
 
-				<section data-background="images/icon-templates.png" data-background-size="50px" data-background-position="10%">
-					<section id="templatesSlide">
-						<h2>Templates</h2>
-						<p>
-							<q cite="http://webcomponents.org/">"Declaring inert DOM subtrees in HTML and manipulating them to instantiate document fragments with identical contents."</q>
-						</p>
-						
-						<aside class="notes">
-							- inert - lacking the ability or strength to move
-						</aside>
-					</section>
-				</section>
-
-				
-				<section data-background="images/icon-shadowdom.png" data-background-size="50px" data-background-position="10%">
-					<section id="shadowDOMSlide">
-						<h2>Shadow DOM</h2>
-						<p>
-							<q cite="http://webcomponents.org/">"Method of establishing and maintaining functional boundaries between DOM trees and how these trees interact with each other within a document, thus enabling better functional encapsulation within the DOM."</q>
-						</p>
-					</section>
-				</section>
-			
-				<section id="isWebComponentsReadyForProductionSlide" data-background="images/icon-webcomponents.png" data-background-size="50px" data-background-position="10%">
-					<h2>Is Web Components ready for production?</h2>
-					<p>
-						<q cite="http://webcomponents.org/">"..."</q>
-					</p>
-				</section>
-				
-				<section>
-					<section id="questionsSlide" data-background="images/icon-questionmark.png" data-background-size="50px" data-background-position="10%">
-						<h2>Questions?</h2>
-					</section>
-				
-					<section id="recapSlide" data-background="images/icon-questionmark.png" data-background-size="50px" data-background-position="10%">
-						<h2>Recap</h2>
-						<p class="fragment grow">Custom Elements</p>
-						<p class="fragment grow">HTML Imports</p>
-						<p class="fragment grow">Templates</p>
-						<p class="fragment grow">Shadow DOM</p>
-						<p class="fragment roll-in">Is Web Components ready for production?</p>
-					</section>
-				</section>
-				
-				<section>
-					<section id="referencesSlide">
-						<h2>References</h2>
-						<ul>
-							<li><a href="http://webcomponents.org/">http://webcomponents.org/</a></li>
-							<li><a href="http://www.polymer-project.org/">http://www.polymer-project.org/</a></li>
-							<li><a href="http://www.html5rocks.com/en/tutorials/webcomponents/customelements/">http://www.html5rocks.com/en/tutorials/webcomponents/customelements/</a></li>
-							<li><a href="http://www.html5rocks.com/en/tutorials/webcomponents/imports/">http://www.html5rocks.com/en/tutorials/webcomponents/imports/</a></li>
-						</ul>
-					</section>
-				</section>
-			</div>
-
-		</div>
-
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
-		<script src="js/script.js"></script>
-
-		<script>
-
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-
-				// Parallax scrolling
-				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-				// parallaxBackgroundSize: '2100px 900px',
-
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
-			});
-
-		</script>
-
-	</body>
+  </body>
 </html>
 
 <!--https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain-->

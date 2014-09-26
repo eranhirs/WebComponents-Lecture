@@ -1,3 +1,18 @@
-#importKittyHtml pre.javascript-container {
+#importKittyHtmlSlide pre.javascript-container {
 	margin-top: -50px;
+}
+
+/* Put profile picture aside */
+#aboutSlideAside {
+  float: right;
+}
+
+#aboutSlideContactMe img {
+  border: 0px;
+  margin: -2px 0px;
+  color: blue;
+}
+
+#aboutSlideContactMe {
+  margin: 15px 0px;
 }
