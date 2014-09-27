@@ -73,19 +73,19 @@
 var XSquarePrototype = Object.create(HTMLElement.prototype);
 
 XSquarePrototype.createdCallback = function() {
-// Add style
-this.style.border = "red 5px dashed";
-this.style.width = "50px";
-this.style.height = "50px";
+    // Add style
+    this.style.border = "red 5px dashed";
+    this.style.width = "50px";
+    this.style.height = "50px";
 };
 
 var XSquare = document.registerElement('x-square', {
-prototype: XSquarePrototype
+    prototype: XSquarePrototype
 });
                   </code>
                   <code contenteditable class="html">
 &lt;x-square&gt;&lt;/x-square&gt;
-                  </code>
+</code>
                   <h3>Example:</h3><x-square></x-square>
                 </pre>
 
@@ -104,20 +104,20 @@ prototype: XSquarePrototype
 var XRectanglePrototype = Object.create(XSquarePrototype);
 
 XRectanglePrototype.createdCallback = function() {
-// Call base
-XSquarePrototype.createdCallback.call(this);
+    // Call base
+    XSquarePrototype.createdCallback.call(this);
 
-// Add width
-this.style.width = "250px";
+    // Add width
+    this.style.width = "250px";
 };
 
 var XSquare = document.registerElement('x-rectangle', {
-prototype: XRectanglePrototype
+    prototype: XRectanglePrototype
 });
                   </code>
                   <code contenteditable class="html">
 &lt;x-rectangle&gt;&lt;/x-rectangle&gt;
-                  </code>
+</code>
                   <h3>Example:</h3><x-rectangle></x-rectangle>
                 </pre>
 
@@ -132,24 +132,24 @@ prototype: XRectanglePrototype
 var XSquareButtonPrototype = Object.create(HTMLButtonElement.prototype);
 
 XSquareButtonPrototype.createdCallback = function() {
-// Add style
-this.style.border = "red 3px dashed";
-this.style.width = "50px";
-this.style.height = "50px";
+    // Add style
+    this.style.border = "red 3px dashed";
+    this.style.width = "50px";
+    this.style.height = "50px";
 
-// Add click event
-this.onclick = function() { alert("Good job!"); };
-this.innerHTML = "Hi";
+    // Add click event
+    this.onclick = function() { alert("Good job!"); };
+    this.innerHTML = "Hi";
 };
 
 var XSquare = document.registerElement('x-square-button', {
-prototype: XSquareButtonPrototype,
-extends: 'button'
+    prototype: XSquareButtonPrototype,
+    extends: 'button'
 });
                   </code>
                   <code contenteditable class="html">
 &lt;button is="x-square-button"&gt;&lt;/button&gt;
-                  </code>
+</code>
                   <h3>Example:</h3><button is="x-square-button"></button>
                 </pre>
 
