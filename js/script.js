@@ -21,21 +21,56 @@ Utilities = (function() {
         for (i=0; i < links.length; i++) {
             var link = links[i];
             var slide = link.import.querySelector('.slide');
-            slidesContainer.appendChild(slide.cloneNode(true));
+            slidesContainer.appendChild(slide);
         }
 
         // Add Reveal listener
         Reveal.addEventListener('slidechanged', function(event) {
             // Only in kitty slide
-            if (event.currentSlide.id == "importKittyHtml") {
+            if (event.currentSlide.id === 'importKittyHtml') {
+                initializeKittySlide();
+            }
 
-                // Grab image and set onclick
-                var img = document.querySelector('#kittyImage');
-                img.onclick = function() { console.log("Hello world!"); };
-
+            // Only in template slide
+            if (event.currentSlide.id === 'writing-the-template-slide') {
+                //initializeTemplatesSlide();
             }
         } );
     };
+
+    var initializeKittySlide = function() {
+        // Grab image and set onclick
+        var img = document.querySelector('#kittyImage');
+        img.onclick = function() { console.log("Hello world!"); };
+    };
+
+    var initializeTemplatesExample = function () {
+        var importDoc = document.currentScript.ownerDocument;
+
+        var list = importDoc.querySelector('#writing-the-template-slide ul');
+        var template = importDoc.querySelector('#todo-list-item-template');
+        var counter = 1;
+
+        // Adds an item to the to-do list
+        function addItem(text) {
+            // Clone template
+            var clone = template.content.cloneNode(true);
+            clone.querySelector('.item-number').innerHTML = counter++;
+            clone.querySelector('.item-text').innerHTML = text;
+
+            list.appendChild(clone);
+        }
+
+        var form = importDoc.querySelector('#writing-the-template-slide form');
+        form.removeEventListener('submit');
+        form.addEventListener('submit',  function(e) {
+            var formTextbox = this[0];
+            var newTaskText = formTextbox.value;
+            addItem(newTaskText);
+            formTextbox.value = "";
+            e.preventDefault();
+        });
+    }
 
     var getKittyImageFromImport = function() {
         var importDoc = document.currentScript.ownerDocument;
@@ -56,6 +91,7 @@ Utilities = (function() {
 	return {
 		'getCurrentDate': getCurrentDate,
         'initialize': initialize,
+        'initializeTemplatesExample': initializeTemplatesExample,
         'getKittyImageFromImport': getKittyImageFromImport
 	};
 }());

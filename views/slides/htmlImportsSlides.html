@@ -40,9 +40,9 @@ examplePlaceHolder.appendChild(kitty.cloneNode(true));
             </p>
 
             <aside class="notes">
-                - import should go in head or body? </br>
-                - polymer: "HTML Imports are a way to include and reuse HTML documents in other HTML documents. As script tags let authors include external Javascript in their pages, imports let authors load full HTML resources. In particular, imports let authors include Custom Element definitions from external URLs."</br>
-                - html5rocks: ?? </br>
+                - import should go in head or body? <br/>
+                - polymer: "HTML Imports are a way to include and reuse HTML documents in other HTML documents. As script tags let authors include external Javascript in their pages, imports let authors load full HTML resources. In particular, imports let authors include Custom Element definitions from external URLs."<br/>
+                - html5rocks: ?? <br/>
                 - What happens if the page raises an exception?
             </aside>
         </section>
@@ -54,13 +54,14 @@ examplePlaceHolder.appendChild(kitty.cloneNode(true));
             </ul>
             <aside class="notes">
                 - Only static html files? what is the different then $.get request to server?
-                - Does a regular querySelector works with iframe?</br>
-                - Why not ajax?
-                - &lt;iframe&gt; - tried and true but heavy weight. An iframe's content lives entirely in a separate context than your page. While that's mostly a great feature, it creates additional challenges (shrink wrapping the size of the frame to its content is tough, insanely frustrating to script into/out of, nearly impossible to style).</br>
+                - Does a regular querySelector works with iframe?<br/>
+                - Why not ajax?<br/>
+                - &lt;iframe&gt; - tried and true but heavy weight. An iframe's content lives entirely in a separate context than your page. While that's mostly a great feature, it creates additional challenges (shrink wrapping the size of the frame to its content is tough, insanely frustrating to script into/out of, nearly impossible to style).<br/>
                 - AJAX - I love xhr.responseType="document", but you're saying I need JS to load HTML? That doesn't seem right. <br/>
-                - Examples to show: (1) Chrome network getting the html (2) import from same url is only parsed once, Script will run once (3) </br>
-                - HTML imports allow bundling HTML/CSS/JS as a single resource. (import an entire web app) </br>
-                - How to script from imports? Answer: document.currentScript.ownerDocument </br>
+                - Examples to show: (1) Chrome network getting the html (2) import from same url is only parsed once, Script will run once (3) <br/>
+                - HTML imports allow bundling HTML/CSS/JS as a single resource. (import an entire web app) <br/>
+                - How to script from imports? Answer: document.currentScript.ownerDocument <br/>
+                - How to copy events from import when doing .cloneNode(true) ?? Answer: No simple way
             </aside>
         </section>
     </section>

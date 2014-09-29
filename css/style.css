@@ -42,3 +42,20 @@
     margin-right: 5px;
     margin-bottom: 0px;
 }
+
+/* Style the to-do list */
+#writing-the-template-slide ul {
+    list-style-type: none;
+    font-size: larger;
+}
+
+#writing-the-template-slide li {
+    margin-bottom: 3px;
+}
+
+#writing-the-template-slide ul .item-delete {
+    color: red;
+    font-size: large;
+    vertical-align: top;
+    cursor: pointer;
+}

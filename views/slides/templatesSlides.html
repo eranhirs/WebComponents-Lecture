@@ -6,16 +6,86 @@
 </head>
 <body>
     <section class="slide" data-background="images/icon-templates.png" data-background-size="50px" data-background-position="10%">
-        <section id="templatesSlide">
+        <section id="templates-slide">
             <h2>Templates</h2>
             <p>
                 <q cite="http://webcomponents.org/">"Declaring inert DOM subtrees in HTML and manipulating them to instantiate document fragments with identical contents."</q>
             </p>
 
             <aside class="notes">
-                - inert - lacking the ability or strength to move
+                - inert - lacking the ability to move - does nothing until it is activated like explained later
             </aside>
         </section>
+        <section id="writing-the-template-slide">
+            <h3>To-do list</h3>
+
+            <script>
+
+            </script>
+
+            <pre>
+                <code contenteditable class="html">
+<template id="todo-list-item">
+    <span class="itemNumber"></span>. <span class="itemText"></span> <span class="itemDelete">X</span>
+</template>
+                </code>
+            </pre>
+            <pre>
+                <code contenteditable class="javascript">
+// Clone the template
+var template = document.querySelector('#todo-list-item-template');
+var clone = document.importNode(template.content, true);
+
+// Change and append
+clone.querySelector('.item-number').innerHTML = counter++;
+clone.querySelector('.item-text').innerHTML = text;
+list.appendChild(clone);
+                </code>
+            </pre>
+
+            <h3>Example:</h3>
+            <template id="todo-list-item-template">
+                <li>
+                    <span class="item-number"></span>. <span class="item-text"></span> <span class="item-delete">X</span>
+                </li>
+            </template>
+
+            <form>
+                <input type="text" placeholder="Add a todo item" /> <input type="submit" value="+" />
+            </form>
+
+            <ul>
+
+            </ul>
+
+            <aside class="notes">
+                - Read template article <br/>
+                - Hidden DOM - Does not render, so does images don't load and scripts don't run <br/>
+                - Using querySelector won't fetch the content <br/>
+                - Handlebars is using script overloading <br/>
+                - Disadvantage: No way to preload a template <br/>
+                - Template with source? Answer: Not right now <br/>
+                - Render templates with data (like {{}} in handlebars)? <br/>
+                - Why does the form.addEventListener doesn't work inside html import?
+            </aside>
+        </section>
+        <section id="templatesAlternativesSlide">
+            <h3>Alternatives</h3>
+            <ul>
+                <li>Hidden DOM</li>
+                <li>Templates frameworks</li>
+            </ul>
+
+            <aside class="notes">
+                - Hidden DOM is not inert - a network request for the image is still made <br/>
+                - The name of the template <br/>
+                - Not native (more javascript files to load, potientially slower) / security issues (running .innerHTML on user supplied data) / not standard
+            </aside>
+        </section>
+
     </section>
+    <script>
+        Utilities.initializeTemplatesExample();
+    </script>
 </body>
 </html>
