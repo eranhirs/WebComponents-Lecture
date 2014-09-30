@@ -24,7 +24,6 @@
                     this.style.border = "red 5px dashed";
                     this.style.width = "50px";
                     this.style.height = "50px";
-                    this.style.display = "block";
                 };
 
                 var XSquare = document.registerElement('x-square', {
@@ -60,7 +59,6 @@
                     // Add click event
                     this.onclick = function() { alert("Good job!"); };
                     this.innerHTML = "Hi";
-                    this.style.display = "block";
                 };
 
                 var XSquare = document.registerElement('x-square-button', {
@@ -68,8 +66,13 @@
                     extends: 'button'
                 });
             </script>
-                <pre>
-                  <code contenteditable class="javascript">
+            <pre>
+                  <code data-trim contenteditable class="html">
+                      &lt;x-square&gt;&lt;/x-square&gt;
+                  </code>
+            </pre>
+            <pre class="javascript-container">
+                  <code data-trim contenteditable class="javascript">
 var XSquarePrototype = Object.create(HTMLElement.prototype);
 
 XSquarePrototype.createdCallback = function() {
@@ -83,12 +86,9 @@ var XSquare = document.registerElement('x-square', {
     prototype: XSquarePrototype
 });
                   </code>
-                  <code contenteditable class="html">
-&lt;x-square&gt;&lt;/x-square&gt;
-</code>
-                  <h3>Example:</h3><x-square></x-square>
-                </pre>
-
+            </pre>
+            <h3>Example:</h3>
+            <x-square></x-square>
             <aside class="notes">
                 - Should use polymer? <br/>
                 - Custom elements must use -, but is it possible to have <square></square> ? <br/>
@@ -99,8 +99,13 @@ var XSquare = document.registerElement('x-square', {
         </section>
         <section id="xRectangleSlide">
             <h3>XRectangle</h3>
-                <pre>
-                  <code contenteditable class="javascript">
+            <pre>
+                <code data-trim contenteditable class="html">
+                    &lt;x-rectangle&gt;&lt;/x-rectangle&gt;
+                </code>
+            </pre>
+            <pre class="javascript-container">
+              <code data-trim contenteditable class="javascript">
 var XRectanglePrototype = Object.create(XSquarePrototype);
 
 XRectanglePrototype.createdCallback = function() {
@@ -115,11 +120,8 @@ var XSquare = document.registerElement('x-rectangle', {
     prototype: XRectanglePrototype
 });
                   </code>
-                  <code contenteditable class="html">
-&lt;x-rectangle&gt;&lt;/x-rectangle&gt;
-</code>
-                  <h3>Example:</h3><x-rectangle></x-rectangle>
-                </pre>
+            </pre>
+            <h3>Example:</h3><x-rectangle></x-rectangle>
 
             <aside class="notes">
                 - In Rect - why write twice the square? Answer: Must inheritance to extend! http://www.html5rocks.com/en/tutorials/webcomponents/customelements/
@@ -127,8 +129,13 @@ var XSquare = document.registerElement('x-rectangle', {
         </section>
         <section id="xSquareButtonSlide">
             <h3>XSquareButton</h3>
-                <pre>
-                  <code contenteditable class="javascript">
+            <pre>
+                <code data-trim contenteditable class="html">
+                    &lt;button is="x-square-button"&gt;&lt;/button&gt;
+                </code>
+            </pre>
+            <pre class="javascript-container">
+                  <code data-trim contenteditable class="javascript">
 var XSquareButtonPrototype = Object.create(HTMLButtonElement.prototype);
 
 XSquareButtonPrototype.createdCallback = function() {
@@ -147,11 +154,8 @@ var XSquare = document.registerElement('x-square-button', {
     extends: 'button'
 });
                   </code>
-                  <code contenteditable class="html">
-&lt;button is="x-square-button"&gt;&lt;/button&gt;
-</code>
-                  <h3>Example:</h3><button is="x-square-button"></button>
-                </pre>
+            </pre>
+            <h3>Example:</h3><button is="x-square-button"></button>
 
             <aside class="notes">
                 - Why extends is used only in button? Answer: Different syntax, it uses <button is="..."></button> native elements first then calls our constructors. In custom element inheritance is enough.

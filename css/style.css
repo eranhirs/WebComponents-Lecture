@@ -1,4 +1,6 @@
-#importKittyHtmlSlide pre.javascript-container {
+/* Remove unnecssary space */
+
+pre.javascript-container {
 	margin-top: -50px;
 }
 
@@ -21,6 +23,11 @@
 
 #thankyouSlideContactMe, #aboutSlideContactMe {
     margin: 15px 0px;
+}
+
+/* Used to center them in slide */
+x-square, x-rectangle {
+    display: inline-block;
 }
 
 /* Make ul appear horizontal in talks slide */
