@@ -88,10 +88,26 @@ Utilities = (function() {
         examplePlaceHolder.appendChild(kitty.cloneNode(true));
     };
 
+    var initializeShadowDOMExample = function() {
+        angular.module('demoApp', ['jsTag']);
+        /*
+
+        var importDoc = document.currentScript.ownerDocument;
+        var mainDoc = document;
+
+        var el = document.createElement('section');
+        el.innerHTML = 'E H';
+        var shadow = el.createShadowRoot();
+        shadow.innerHTML = 'My name is: <content></content>';
+        importDoc.getElementById('shadowDOMExampleSlide').appendChild(el);
+        */
+    };
+
 	return {
 		'getCurrentDate': getCurrentDate,
         'initialize': initialize,
         'initializeTemplatesExample': initializeTemplatesExample,
-        'getKittyImageFromImport': getKittyImageFromImport
+        'getKittyImageFromImport': getKittyImageFromImport,
+        'initializeShadowDOMExample' : initializeShadowDOMExample
 	};
 }());

@@ -9,9 +9,43 @@
         <section id="shadowDOMSlide">
             <h2>Shadow DOM</h2>
             <p>
-                <q cite="http://webcomponents.org/">"Method of establishing and maintaining functional boundaries between DOM trees and how these trees interact with each other within a document, thus enabling better functional encapsulation within the DOM."</q>
+                <q cite="http://webcomponents.org/">"Method of establishing and maintaining functional boundaries between DOM trees and how these trees interact with each other within a document, thus enabling better functional <b>encapsulation</b> within the DOM."</q>
             </p>
         </section>
+        <section id="shadowDOMMotivation">
+            <h3>Motivation</h3>
+            <ul>
+                <li>Third party plugins should use Shadow DOM</li>
+            </ul>
+
+            <h4>Example plugin: <a href="http://eranhirs.github.io/jsTag/">jsTag</a></h4>
+            <span ng-app="demoApp">
+                <js-tag></js-tag>
+            </span>
+            <pre>
+                <code class="html">&lt;js-tag&gt;&lt;/js-tag&gt;</code>
+            </pre>
+        </section>
+        <section id="shadowDOMExampleSlide">
+            <h3>The Basics</h3>
+            <p>
+                <ul>
+                    <li>Light DOM - What the user of the custom element supplies</li>
+                    <li>Shadow DOM - What the creator of the custom element supplies </li>
+                    <li>Composed DOM - What the browser eventually renders</li>
+                </ul>
+            </p>
+
+            <aside class="notes">
+                Light DOM - is visible to the user as a subtree of &lt;custom-element&gt; (can access with document.getElementById)<br/>
+                Shadow DOM - is hidden from the user, its nodes are not children of &lt;custom-element&gt;<br/>
+                Composed DOM - <br/>
+                How to use 2 &lt;content&gt;'s? is it even useful?
+            </aside>
+        </section>
     </section>
+    <script>
+        Utilities.initializeShadowDOMExample();
+    </script>
 </body>
 </html>
