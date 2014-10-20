@@ -88,6 +88,16 @@ form input[type="submit"] {
 
 /* Shadow DOM */
 
-#shadowDOMMotivation ul {
+#shadow-dom-motivation ul {
     margin-bottom: 30px;
+}
+
+/* Production slide */
+#production-slides img {
+    width: 80%;
+}
+
+/* Custom elements slide */
+#custom-elements-alternatives-slide ul {
+    width: 700px;
 }

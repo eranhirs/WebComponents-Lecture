@@ -161,15 +161,40 @@ var XSquare = document.registerElement('x-square-button', {
                 - Why extends is used only in button? Answer: Different syntax, it uses <button is="..."></button> native elements first then calls our constructors. In custom element inheritance is enough.
             </aside>
         </section>
-        <section id="customElementsAlternativesSlide">
+        <section id="custom-elements-alternatives-slide">
             <h3>Alternatives</h3>
             <ul>
-                <li>AngularJS directives</li>
-                <li>Other MVC frameworks</li>
+                <li>External frameworks
+                    <pre>
+                        <code data-trim contenteditable class="javascript">
+angular.module('demoApp', [])
+.directive('square', function() {
+    return {
+        restrict: 'E',
+        compile: function(element) {
+            element[0].style.border = "red 5px dashed";
+            element[0].style.width = "50px";
+            element[0].style.height = "50px";
+        }
+    };
+});
+                        </code>
+                    </pre>
+                </li>
+                <li>Manual constructor
+                    <pre>
+                        <code data-trim contenteditable class="html">
+&lt;x-square&gt;&lt;/x-square&gt;
+&lt;script&gt;
+    $('x-square').xSquare();
+&lt;/script&gt;
+                        </code>
+                    </pre>
+                </li>
             </ul>
 
             <aside class="notes">
-                - Why is this better than angularJS?
+                - Manual constructor - Need to call javascript on each callback
             </aside>
         </section>
     </section>

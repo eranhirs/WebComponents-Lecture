@@ -89,9 +89,11 @@ Utilities = (function() {
     };
 
     var initializeShadowDOMExample = function() {
+        // Used for angular slide
         angular.module('demoApp', ['jsTag']);
-        /*
 
+
+        // Used for shadow dom example
         var importDoc = document.currentScript.ownerDocument;
         var mainDoc = document;
 
@@ -100,7 +102,6 @@ Utilities = (function() {
         var shadow = el.createShadowRoot();
         shadow.innerHTML = 'My name is: <content></content>';
         importDoc.getElementById('shadowDOMExampleSlide').appendChild(el);
-        */
     };
 
 	return {
