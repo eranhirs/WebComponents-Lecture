@@ -11,27 +11,42 @@
             <p>
                 <q cite="http://webcomponents.org/">"Declaring inert DOM subtrees in HTML and manipulating them to instantiate document fragments with identical contents."</q>
             </p>
+            <ul>
+                <li>Bundles fragments of DOM</li>
+                <li>Parsed at page load</li>
+                <li>Inert at page load</li>
+                <li>Instantiated later at runtime</li>
+            </ul>
 
             <aside class="notes">
                 - inert - lacking the ability to move - does nothing until it is activated like explained later
             </aside>
         </section>
+        <section id="templates-alternatives-slide">
+            <h3>Alternatives</h3>
+            <ul>
+                <li>Hidden DOM</li>
+                <li>Templates frameworks</li>
+            </ul>
+
+            <aside class="notes">
+                - Hidden DOM is not inert - a network request for the image is still made <br/>
+                - The name of the template <br/>
+                - Not native (more javascript files to load, potientially slower) / security issues (running .innerHTML on user supplied data) / not standard
+            </aside>
+        </section>
         <section id="writing-the-template-slide" data-background-transition="slide">
             <h3>To-do list</h3>
 
-            <script>
-
-            </script>
-
             <pre>
-                <code contenteditable class="html">
+                <code contenteditable data-trim class="html">
 <template id="todo-list-item">
     <span class="item-number"></span>. <span class="item-text"></span> <span class="item-delete">X</span>
 </template>
                 </code>
             </pre>
             <pre class="javascript-container">
-                <code contenteditable class="javascript">
+                <code contenteditable data-trim class="javascript">
 // Clone the template
 var template = document.querySelector('#todo-list-item-template');
 var clone = document.importNode(template.content, true);
@@ -67,19 +82,6 @@ list.appendChild(clone);
                 - Template with source? Answer: Not right now <br/>
                 - Render templates with data (like {{}} in handlebars)? <br/>
                 - Why does the form.addEventListener doesn't work inside html import?
-            </aside>
-        </section>
-        <section id="templatesAlternativesSlide">
-            <h3>Alternatives</h3>
-            <ul>
-                <li>Hidden DOM</li>
-                <li>Templates frameworks</li>
-            </ul>
-
-            <aside class="notes">
-                - Hidden DOM is not inert - a network request for the image is still made <br/>
-                - The name of the template <br/>
-                - Not native (more javascript files to load, potientially slower) / security issues (running .innerHTML on user supplied data) / not standard
             </aside>
         </section>
 

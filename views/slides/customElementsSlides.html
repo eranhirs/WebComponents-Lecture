@@ -6,159 +6,20 @@
 </head>
 <body>
     <section class="slide" data-background="images/icon-customelements.png" data-background-size="50px" data-background-position="10%">
-        <section id="customElementsSlide">
+        <section id="custom-elements-slide">
             <h2>Custom Elements</h2>
             <p>
-                <q cite="http://webcomponents.org/">"Enables the author to define and use new types of DOM elements in a document."</q>
+                <q cite="http://webcomponents.org/">"Enabling the author to define and use new types of DOM elements."</q>
             </p>
-        </section>
-        <section id="xSquareSlide">
-            <h3>XSquare</h3>
-            <script>
-                // First slide
-
-                var XSquarePrototype = Object.create(HTMLElement.prototype);
-
-                XSquarePrototype.createdCallback = function() {
-                    // Add style
-                    this.style.border = "red 5px dashed";
-                    this.style.width = "50px";
-                    this.style.height = "50px";
-                };
-
-                var XSquare = document.registerElement('x-square', {
-                    prototype: XSquarePrototype
-                });
-
-                // Second slide
-
-                var XRectanglePrototype = Object.create(XSquarePrototype);
-
-                XRectanglePrototype.createdCallback = function() {
-                    // Call base
-                    XSquarePrototype.createdCallback.call(this);
-
-                    // Add width
-                    this.style.width = "250px";
-                };
-
-                var XSquare = document.registerElement('x-rectangle', {
-                    prototype: XRectanglePrototype
-                });
-
-                // Third slide
-
-                var XSquareButtonPrototype = Object.create(HTMLButtonElement.prototype);
-
-                XSquareButtonPrototype.createdCallback = function() {
-                    // Add style
-                    this.style.border = "red 3px dashed";
-                    this.style.width = "50px";
-                    this.style.height = "50px";
-
-                    // Add click event
-                    this.onclick = function() { alert("Good job!"); };
-                    this.innerHTML = "Hi";
-                };
-
-                var XSquare = document.registerElement('x-square-button', {
-                    prototype: XSquareButtonPrototype,
-                    extends: 'button'
-                });
-            </script>
-            <pre>
-                  <code data-trim contenteditable class="html">
-                      &lt;x-square&gt;&lt;/x-square&gt;
-                  </code>
-            </pre>
-            <pre class="javascript-container">
-                  <code data-trim contenteditable class="javascript">
-var XSquarePrototype = Object.create(HTMLElement.prototype);
-
-XSquarePrototype.createdCallback = function() {
-    // Add style
-    this.style.border = "red 5px dashed";
-    this.style.width = "50px";
-    this.style.height = "50px";
-};
-
-var XSquare = document.registerElement('x-square', {
-    prototype: XSquarePrototype
-});
-                  </code>
-            </pre>
-            <h3>Example:</h3>
-            <x-square></x-square>
-            <aside class="notes">
-                - Should use polymer? <br/>
-                - Custom elements must use -, but is it possible to have <square></square> ? <br/>
-                - Object.create ? <br/>
-                - What happens behind the stages? <br/>
-                - Is it ok for custom element to use the DOM?
-            </aside>
-        </section>
-        <section id="xRectangleSlide">
-            <h3>XRectangle</h3>
-            <pre>
-                <code data-trim contenteditable class="html">
-                    &lt;x-rectangle&gt;&lt;/x-rectangle&gt;
-                </code>
-            </pre>
-            <pre class="javascript-container">
-              <code data-trim contenteditable class="javascript">
-var XRectanglePrototype = Object.create(XSquarePrototype);
-
-XRectanglePrototype.createdCallback = function() {
-    // Call base
-    XSquarePrototype.createdCallback.call(this);
-
-    // Add width
-    this.style.width = "250px";
-};
-
-var XSquare = document.registerElement('x-rectangle', {
-    prototype: XRectanglePrototype
-});
-                  </code>
-            </pre>
-            <h3>Example:</h3><x-rectangle></x-rectangle>
+            <ul>
+                <li>Define new DOM elements</li>
+                <li>Extend the API of existing DOM elements</li>
+                <li>Bundle custom functionality into a single DOM element</li>
+            </ul>
 
             <aside class="notes">
-                - In Rect - why write twice the square? Answer: Must inheritance to extend! http://www.html5rocks.com/en/tutorials/webcomponents/customelements/
-            </aside>
-        </section>
-        <section id="xSquareButtonSlide">
-            <h3>XSquareButton</h3>
-            <pre>
-                <code data-trim contenteditable class="html">
-                    &lt;button is="x-square-button"&gt;&lt;/button&gt;
-                </code>
-            </pre>
-            <pre class="javascript-container">
-                  <code data-trim contenteditable class="javascript">
-var XSquareButtonPrototype = Object.create(HTMLButtonElement.prototype);
-
-XSquareButtonPrototype.createdCallback = function() {
-    // Add style
-    this.style.border = "red 3px dashed";
-    this.style.width = "50px";
-    this.style.height = "50px";
-
-    // Add click event
-    this.onclick = function() { alert("Good job!"); };
-    this.innerHTML = "Hi";
-};
-
-var XSquare = document.registerElement('x-square-button', {
-    prototype: XSquareButtonPrototype,
-    extends: 'button'
-});
-                  </code>
-            </pre>
-            <h3>Example:</h3><button is="x-square-button"></button>
-
-            <aside class="notes">
-                - Why extends is used only in button? Answer: Different syntax, it uses <button is="..."></button> native elements first then calls our constructors. In custom element inheritance is enough.
+                Defining new valid elements in HTML <br/>
+                No more "div soup"
             </aside>
         </section>
         <section id="custom-elements-alternatives-slide">
@@ -184,9 +45,9 @@ angular.module('demoApp', [])
                 <li>Manual constructor
                     <pre>
                         <code data-trim contenteditable class="html">
-&lt;x-square&gt;&lt;/x-square&gt;
+&lt;square&gt;&lt;/square&gt;
 &lt;script&gt;
-    $('x-square').xSquare();
+    $('square').initSquare();
 &lt;/script&gt;
                         </code>
                     </pre>
@@ -197,6 +58,163 @@ angular.module('demoApp', [])
                 - Manual constructor - Need to call javascript on each callback
             </aside>
         </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section id="custom-elements-demo-slide">
+            <h2>Demo</h2>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section id="custom-elements-api">
+            <h3>API</h3>
+            <ul>
+                <li>createdCallback</li>
+                <li>attachedCallback</li>
+                <li>detachedCallback</li>
+                <li>attributeChangedCallback(name,old,new)</li>
+                <li>:unresolved</li>
+            </ul>
+
+            <aside class="notes">
+                - The CSS selector :unresolved is used to avoid FOUC (Flash Of Unstyled Content)
+            </aside>
+        </section>
+        <section id="x-square-slide">
+            <h3>XSquare</h3>
+            <pre>
+                  <code data-trim contenteditable class="html">
+                      &lt;x-square&gt;&lt;/x-square&gt;
+                  </code>
+            </pre>
+            <pre class="javascript-container">
+                  <code data-trim contenteditable class="javascript">
+// Prototype inheritance
+var XSquarePrototype = Object.create(HTMLElement.prototype);
+
+XSquarePrototype.createdCallback = function() {
+    // Add style
+    this.style.border = "red 5px dashed";
+    this.style.width = "50px";
+    this.style.height = "50px";
+};
+
+var XSquare = document.registerElement('x-square', {
+    prototype: XSquarePrototype
+});
+                  </code>
+            </pre>
+            <h3>Example:</h3>
+            <x-square></x-square>
+            <aside class="notes">
+                - Should use polymer? <br/>
+                - Custom elements must use a dash - (forward compatibility)<br/>
+                - Object.create ? <br/>
+                - What happens behind the stages? <br/>
+                - Is it ok for custom element to use the DOM?
+            </aside>
+        </section>
+        <section id="x-rectangle-slide">
+            <h3>XRectangle</h3>
+            <pre>
+                <code data-trim contenteditable class="html">
+                    &lt;x-rectangle&gt;&lt;/x-rectangle&gt;
+                </code>
+            </pre>
+            <pre class="javascript-container">
+              <code data-trim contenteditable class="javascript">
+// Prototype inheritance
+var XRectanglePrototype = Object.create(XSquarePrototype);
+
+XRectanglePrototype.createdCallback = function() {
+    // Call base
+    XSquarePrototype.createdCallback.call(this);
+
+    // Add width
+    this.style.width = "250px";
+};
+
+var XRectangle = document.registerElement('x-rectangle', {
+    prototype: XRectanglePrototype
+});
+                  </code>
+            </pre>
+            <h3>Example:</h3><x-rectangle></x-rectangle>
+
+            <aside class="notes">
+                - In Rect - why write twice the square? Answer: Must inheritance to extend! http://www.html5rocks.com/en/tutorials/webcomponents/customelements/
+            </aside>
+        </section>
+        <section id="x-square-button-slide">
+            <h3>XSquareButton</h3>
+            <pre>
+                <code data-trim contenteditable class="html">
+                    &lt;button is="x-square-button"&gt;&lt;/button&gt;
+                </code>
+            </pre>
+            <pre class="javascript-container">
+                  <code data-trim contenteditable class="javascript">
+// Prototype inheritance
+var XSquareButtonPrototype = Object.create(HTMLButtonElement.prototype);
+
+XSquareButtonPrototype.createdCallback = function() {
+    // Add style
+    this.style.border = "red 3px dashed";
+    this.style.width = "50px";
+    this.style.height = "50px";
+
+    // Add click event
+    this.onclick = function() { alert("Good job!"); };
+    this.innerHTML = "Hi";
+};
+
+var XSquare = document.registerElement('x-square-button', {
+    prototype: XSquareButtonPrototype,
+    extends: 'button'
+});
+                  </code>
+            </pre>
+            <h3>Example:</h3><button is="x-square-button"></button>
+
+            <aside class="notes">
+                Why extends is used only in button? Answer: Different syntax, it uses <button is="..."></button> native elements first then calls our constructors. In custom element inheritance is enough.<br/>
+                Also named "Type extension elements"
+            </aside>
+        </section>
     </section>
+    <script>
+        Utilities.initializeCustomElements();
+    </script>
 </body>
 </html>

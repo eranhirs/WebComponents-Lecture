@@ -1,6 +1,6 @@
 Utilities = (function() {
 
-	// Add slide numbers
+	// Add slide date
 	var getCurrentDate = function()
 	{
 		var today = new Date();
@@ -36,6 +36,61 @@ Utilities = (function() {
                 //initializeTemplatesSlide();
             }
         } );
+    };
+
+    var initializeCustomElements = function() {
+
+        // First slide
+
+        var XSquarePrototype = Object.create(HTMLElement.prototype);
+
+        XSquarePrototype.createdCallback = function() {
+            // Add style
+            this.style.border = "red 5px dashed";
+            this.style.width = "50px";
+            this.style.height = "50px";
+            };
+
+        var XSquare = document.registerElement('x-square', {
+            prototype: XSquarePrototype
+            });
+
+        // Second slide
+
+        var XRectanglePrototype = Object.create(XSquarePrototype);
+
+        XRectanglePrototype.createdCallback = function() {
+            // Call base
+            XSquarePrototype.createdCallback.call(this);
+
+            // Add width
+            this.style.width = "250px";
+            };
+
+        var XRectangle = document.registerElement('x-rectangle', {
+            prototype: XRectanglePrototype
+            });
+
+        // Third slide
+
+        var XSquareButtonPrototype = Object.create(HTMLButtonElement.prototype);
+
+        XSquareButtonPrototype.createdCallback = function() {
+            // Add style
+            this.style.border = "red 3px dashed";
+            this.style.width = "50px";
+            this.style.height = "50px";
+
+            // Add click event
+            this.onclick = function() { alert("Good job!"); };
+            this.innerHTML = "Hi";
+            };
+
+        // Type extension element
+        var XSquareButton = document.registerElement('x-square-button', {
+            prototype: XSquareButtonPrototype,
+            extends: 'button'
+            });
     };
 
     var initializeKittySlide = function() {
@@ -92,7 +147,6 @@ Utilities = (function() {
         // Used for angular slide
         angular.module('demoApp', ['jsTag']);
 
-
         // Used for shadow dom example
         var importDoc = document.currentScript.ownerDocument;
         var mainDoc = document;
@@ -107,6 +161,7 @@ Utilities = (function() {
 	return {
 		'getCurrentDate': getCurrentDate,
         'initialize': initialize,
+        'initializeCustomElements': initializeCustomElements,
         'initializeTemplatesExample': initializeTemplatesExample,
         'getKittyImageFromImport': getKittyImageFromImport,
         'initializeShadowDOMExample' : initializeShadowDOMExample

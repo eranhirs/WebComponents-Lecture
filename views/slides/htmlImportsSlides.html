@@ -6,12 +6,70 @@
 </head>
 <body>
     <section class="slide" data-background="images/icon-htmlimports.png" data-background-size="50px" data-background-position="10%">
-        <section id="htmlImportsSlide">
+        <section id="html-imports-slide">
             <h2>HTML Imports</h2>
             <p>
                 <q cite="http://webcomponents.org/">"HTML Imports are a way to include and reuse HTML documents in other HTML documents."</q>
             </p>
+            <ul>
+                <li>Define an import link</li>
+                <li>Allows bundling HTML/CSS/JS as a single resource</li>
+            </ul>
         </section>
+        <section id="html-imports-alternatives-slide">
+            <h3>Alternatives</h3>
+            <ul>
+                <li>&lt;iframe&gt;</li>
+                <li>AJAX</li>
+            </ul>
+            <aside class="notes">
+                - Only static html files? what is the different then $.get request to server?<br/>
+                - Does a regular querySelector works with iframe?<br/>
+                - &lt;iframe&gt; - An iframe's content lives entirely in a separate context than your page. While that's mostly a great feature, it creates additional challenges (shrink wrapping the size of the frame to its content is tough, insanely frustrating to script into/out of, nearly impossible to style).<br/>
+                - AJAX - I love xhr.responseType="document", but you're saying I need JS to load HTML? That doesn't seem right. <br/>
+                - Examples to show: (1) Chrome network getting the html (2) import from same url is only parsed once, Script will run once (3) <br/>
+                - How to script from imports? Answer: document.currentScript.ownerDocument <br/>
+                - How to copy events from import when doing .cloneNode(true) ?? Answer: No simple way
+            </aside>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section id="html-imports-demo-slide">
+            <h2>Demo</h2>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <section id="importKittyHtmlSlide">
             <h3>Import HTML file with kitty</h3>
                 <pre>
@@ -44,24 +102,6 @@ examplePlaceHolder.appendChild(kitty.cloneNode(true));
                 - polymer: "HTML Imports are a way to include and reuse HTML documents in other HTML documents. As script tags let authors include external Javascript in their pages, imports let authors load full HTML resources. In particular, imports let authors include Custom Element definitions from external URLs."<br/>
                 - html5rocks: ?? <br/>
                 - What happens if the page raises an exception?
-            </aside>
-        </section>
-        <section id="htmlImportsAlternativesSlide">
-            <h3>Alternatives</h3>
-            <ul>
-                <li>&lt;iframe&gt;</li>
-                <li>AJAX</li>
-            </ul>
-            <aside class="notes">
-                - Only static html files? what is the different then $.get request to server?
-                - Does a regular querySelector works with iframe?<br/>
-                - Why not ajax?<br/>
-                - &lt;iframe&gt; - tried and true but heavy weight. An iframe's content lives entirely in a separate context than your page. While that's mostly a great feature, it creates additional challenges (shrink wrapping the size of the frame to its content is tough, insanely frustrating to script into/out of, nearly impossible to style).<br/>
-                - AJAX - I love xhr.responseType="document", but you're saying I need JS to load HTML? That doesn't seem right. <br/>
-                - Examples to show: (1) Chrome network getting the html (2) import from same url is only parsed once, Script will run once (3) <br/>
-                - HTML imports allow bundling HTML/CSS/JS as a single resource. (import an entire web app) <br/>
-                - How to script from imports? Answer: document.currentScript.ownerDocument <br/>
-                - How to copy events from import when doing .cloneNode(true) ?? Answer: No simple way
             </aside>
         </section>
     </section>

@@ -4,6 +4,11 @@ pre.javascript-container {
 	margin-top: -50px;
 }
 
+/* Hide quotes */
+q {
+    display: none;
+}
+
 /* Put profile picture aside */
 #aboutSlideAside {
     float: right;
@@ -34,13 +39,13 @@ x-square, x-rectangle {
 
 /* Make ul appear horizontal in talks slide */
 #talksSlide ul {
-    display: inline;
+    /*display: inline;*/
 }
 
 #talksSlide ul li {
     list-style-type: none;
-    padding-right: 30px;
-    float: left;
+    /*padding-right: 30px;*/
+    /*float: left;*/
 }
 
 /* Remove img reveal.js additions in talks slide */
@@ -49,22 +54,27 @@ x-square, x-rectangle {
     background: none;
     width: 40px;
     margin-right: 5px;
-    margin-bottom: 0px;
+    margin-bottom: -7px;
 }
 
 /* Templates */
 
+/* Make the code tag wider */
+#writing-the-template-slide pre {
+    width: 95% !important;
+}
+
 /* Style the form */
-form input[type="text"] {
+#writing-the-template-slide form input[type="text"] {
     width: 300px;
     height: 40px;
     font-size: 26px;
     padding: 2px;
 }
 
-form input[type="submit"] {
+#writing-the-template-slide form input[type="submit"] {
     width: 40px;
-    height: 36px;
+    height: 46px;
     vertical-align: top;
 }
 
