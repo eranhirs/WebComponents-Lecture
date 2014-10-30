@@ -59,6 +59,10 @@ x-square, x-rectangle {
 
 /* Templates */
 
+#templates-alternatives-slide pre {
+    width: 100% !important;
+}
+
 /* Make the code tag wider */
 #writing-the-template-slide pre {
     width: 95% !important;
